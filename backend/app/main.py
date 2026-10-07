@@ -47,7 +47,7 @@ from .security import AuthMiddleware, RateLimitMiddleware
 app = FastAPI(
     title="UniQuery AI",
     version="0.2.0",
-    description="Fully offline document Q&A with local LLMs + citations.",
+    description="Offline university knowledge assistant with source-grounded answers and local LLMs.",
 )
 
 # CORS is allowlist-driven. "*" is honoured but discouraged; the default is the
