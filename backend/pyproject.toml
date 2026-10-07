@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "localrag"
+version = "0.1.0"
+description = "Fully offline document Q&A with local LLMs + citations"
+readme = "../README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "xj16" }]
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.27",
+    "pydantic>=2.6",
+    "python-multipart>=0.0.9",
+]
+
+[project.optional-dependencies]
+embeddings = ["sentence-transformers>=2.7"]
+pdf = ["pypdf>=4.0"]
+fast = ["numpy>=1.24"]
+dev = ["pytest>=8.0", "httpx>=0.27", "coverage>=7.4"]
+
+[project.scripts]
+localrag = "app.cli:main"
+
+[tool.setuptools]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]

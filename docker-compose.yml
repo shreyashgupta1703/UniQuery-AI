@@ -1,0 +1,45 @@
+# localrag — one-command self-host.
+#
+#   docker compose up --build              # app only (extractive answers)
+#   docker compose --profile ollama up     # + local LLM generation via Ollama
+#
+# The app comes up on http://localhost:8000 with the sample docs pre-ingested.
+# With the `ollama` profile, pull a model once it's running:
+#   docker compose exec ollama ollama pull llama3.2
+
+services:
+  localrag:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: localrag:latest
+    ports:
+      - "8000:8000"
+    environment:
+      # Persisted store on the named volume.
+      LOCALRAG_DB: /data/localrag.db
+      # Seed sample docs on first boot (set to 0 to disable).
+      LOCALRAG_SEED: "1"
+      # Point at the Ollama service if the profile is enabled; harmless
+      # otherwise (the app falls back to extractive answers).
+      LOCALRAG_OLLAMA_URL: http://ollama:11434
+      LOCALRAG_OLLAMA_MODEL: llama3.2
+      # Same-origin UI, so no cross-origin access is needed by default.
+      LOCALRAG_CORS_ORIGINS: http://localhost:8000
+    volumes:
+      - localrag-data:/data
+    restart: unless-stopped
+
+  # Optional local LLM. Enable with: docker compose --profile ollama up
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["ollama"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  localrag-data:
+  ollama-models:
