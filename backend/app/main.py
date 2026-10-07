@@ -45,7 +45,7 @@ from .schemas import (
 from .security import AuthMiddleware, RateLimitMiddleware
 
 app = FastAPI(
-    title="localrag",
+    title="UniQuery AI",
     version="0.2.0",
     description="Fully offline document Q&A with local LLMs + citations.",
 )
