@@ -8,7 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776ab)](backend/pyproject.toml)
 
-localrag is a small, self-hostable retrieval-augmented generation (RAG) engine.
+UniQuery AI is a self-hostable retrieval-augmented generation (RAG) assistant for university academic and student-service documents.
 Point it at your PDFs and Markdown notes and ask questions in plain language.
 It retrieves the most relevant passages, answers with **inline citations**
 streamed token-by-token, and runs **100% locally** — no API keys, no cloud, no
