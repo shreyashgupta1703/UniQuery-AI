@@ -27,7 +27,7 @@ class IngestResult:
 
 
 class RagEngine:
-    """High-level retrieval-augmented generation engine."""
+    """High-level retrieval-augmented generation engine for UniQuery AI."""
 
     def __init__(
         self,
