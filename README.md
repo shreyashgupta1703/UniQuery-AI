@@ -1,4 +1,4 @@
-# localrag
+# UniQuery AI
 
 **Fully offline, citation-backed document Q&A with local LLMs — streamed live, runs even with nothing but Python installed.**
 
