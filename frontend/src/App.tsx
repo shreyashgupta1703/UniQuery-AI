@@ -8,7 +8,7 @@ type Theme = "dark" | "light";
 
 function useTheme(): [Theme, () => void] {
   const [theme, setTheme] = useState<Theme>(() => {
-    const saved = localStorage.getItem("localrag-theme");
+    const saved = localStorage.getItem("uniquery-theme");
     return saved === "light" ? "light" : "dark";
   });
   useEffect(() => {
