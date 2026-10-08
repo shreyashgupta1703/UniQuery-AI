@@ -1,5 +1,9 @@
 # UniQuery AI
 
+## Live Demo
+
+GitHub Pages demo is deployed automatically from the main branch.
+
 **Fully offline, citation-backed document Q&A with local LLMs — streamed live, runs even with nothing but Python installed.**
 
 [![CI](https://github.com/xj16/localrag/actions/workflows/ci.yml/badge.svg)](https://github.com/xj16/localrag/actions/workflows/ci.yml)
